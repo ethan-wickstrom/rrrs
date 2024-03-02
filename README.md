@@ -1,7 +1,7 @@
 [//]: # (Image in `.assets/logos/logo.webp`)
 
 <h1 align="center">
-  <img src=".assets/logos/logo.webp" alt="RRRS Logo" width="200px" height="200px" />
+  <img src=".assets/logos/logo.webp" alt="RRRS Logo" width="300px" height="300px" />
   <br>
 </h1>
 
