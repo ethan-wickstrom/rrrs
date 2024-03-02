@@ -1,3 +1,16 @@
+[//]: # (Image in `.assets/logos/logo.webp`)
+
+<h1 align="center">
+  <img src=".assets/logos/logo.webp" alt="RRRS Logo" width="200px" height="200px" />
+  <br>
+</h1>
+
+<div align="center">
+  <a href="https://crates.io/crates/rrrs">
+    <img src="https://img.shields.io/crates/v/rrrs.svg" alt="rrrs.io Latest Release"/>
+  </a>
+</div>
+
 RRRS: Rust(ic) Rapid Random Sampler
 ===================================
 
@@ -27,15 +40,18 @@ Upon execution, RRRS will prompt you to enter the desired number of rows to be r
 Understand the organization of RRRS with the following directory structure:
 
 ```bash
-cli_csv_random_sampler/
+rrrs/
 ├── Cargo.toml              # Project manifest
 ├── src/                    # Source files
 │   ├── main.rs             # Entry point
-│   ├── lib.rs              # Library code
+│   ├── library.rs          # Library code
 │   ├── args.rs             # Argument parsing
-│   ├── csv_loader.rs       # CSV loading functionality
-│   ├── sampler.rs          # Sampling logic
-│   └── csv_writer.rs       # CSV writing functionality
+│   └── library/            # Library code
+│       ├── sampler_ops/        # Sampling operations
+│       │   ├── sampler_ops.rs      # Sampling logic
+│       └── csv_ops/            # CSV operations
+│           ├── csv_loader.rs   # CSV loading functionality
+│           └── csv_writer.rs   # CSV writing functionality
 └── tests/                  # Automated tests
     ├── args_tests.rs       # Tests for argument parsing
     ├── csv_loader_tests.rs # Tests for CSV loading

@@ -1,9 +1,17 @@
 [package]
-name = "cli_csv_random_sampler"
+name = "rrrs"
 version = "0.1.0"
 edition = "2021"
+authors = ["Ethan Wickstrom"]
+repository = "https://github.com/ethan-wickstrom/rrrs/"
+description = "Welcome to RRRS, a rapid, hyper-optimized CSV random sampling tool designed with performance and efficiency at its core."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-polars = "0.38.0"
+polars = "0.38.1"
+clap = { version = "4.5.1"}
+rand = "0.9.0-alpha.0"
+csv = "1.3.0"
+rayon = "1.9.0"
+tokio = { version = "1.36.0", features = ["fs", "io-std", "io-util", "full"] }

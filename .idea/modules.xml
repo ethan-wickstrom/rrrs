@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cli_csv_random_sampler.iml" filepath="$PROJECT_DIR$/.idea/cli_csv_random_sampler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rrrs/.idea/cli_csv_random_sampler.iml" filepath="$PROJECT_DIR$/../rrrs/.idea/cli_csv_random_sampler.iml" />
     </modules>
   </component>
 </project>
