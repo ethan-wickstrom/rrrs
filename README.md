@@ -64,7 +64,7 @@ rrrs/
 
 ### MacOS and Linux
 
-To use RRRS, you need to have Rust installed on your machine. If you don't have Rust installed, you can install it using the following command: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`. *For more information, refer to the official Rust installation guide [here](https://www.rust-lang.org/tools/install).*
+To use RRRS, you need to have Rust installed on your machine. If you don't have Rust installed, install it using the following command: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`. *For more information, refer to the official Rust installation guide [here](https://www.rust-lang.org/tools/install).*
 
 Once Rust is installed, you can install RRRS using the following command: `cargo install rrrs`.
 
@@ -77,7 +77,7 @@ Once Rust is installed, you can install RRRS using the following command: `cargo
 To build RRRS from source, you can clone the repository and build it using the following commands (*Note that this is primarily for development purposes*):
 
 ```bash
-git clone git@github.com:ethan-wickstrom/rrrs.git
+git clone --branch development git@github.com:ethan-wickstrom/rrrs.git
 cd rrrs
 cargo build --release
 cp target/release/rrrs /usr/local/bin
@@ -86,7 +86,9 @@ cp target/release/rrrs /usr/local/bin
 🤝 Contributing
 ---------------
 
-Contributions to RRRS are warmly welcomed. Whether it's bug reports, feature requests, or code contributions, feel free to open an issue or submit a pull request. Please refer to the contributing guidelines for more details.
+Contributions to RRRS are warmly welcomed. Feel free to open an issue or submit a pull request, whether it's bug reports, feature requests, or code contributions. Please refer to the contributing guidelines for more details.
+
+**Please note to clone from the `development` branch when making code contributions!**
 
 📝 License
 ----------
