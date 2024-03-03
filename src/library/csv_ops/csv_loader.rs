@@ -2,11 +2,11 @@ use polars::prelude::*;
 use std::error::Error;
 
 pub async fn load_csv(filepath: &str) -> Result<DataFrame, Box<dyn Error>> {
-    let df = CsvReader::from_path(filepath)?
-        .infer_schema(Some(10))
+    let df = LazyCsvReader::new(filepath)
         .has_header(true)
         .finish()
-        .map_err(|e| e.into());
+        .expect("Error reading CSV file")
+        .collect();
 
-    df
+    Ok(df?)
 }
