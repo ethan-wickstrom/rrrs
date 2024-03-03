@@ -28,7 +28,7 @@ Enter **RRRS**. Developed with the speed and efficiency of Rust, RRRS is my answ
 
 *   **Rapid Random Sampling**: Quickly extract random samples from large CSV files.
 *   **Hyper-Optimized Performance**: Leveraging Rust's powerful system-level capabilities for maximum speed.
-*   **User-Friendly**: Simple command-line interface to specify input and output with ease.
+*   **User-Friendly**: Simple command-line interface to easily specify input and output.
 *   **Flexibility**: Customizable random sampling according to your data analysis needs.
 *   **Cross-Platform Compatibility**: Runs seamlessly on any platform supporting Rust.
 
@@ -39,7 +39,7 @@ To get started with RRRS, follow these simple steps:
 
 `rrrs -i <input_file_path> -o <output_file_path>`
 
-Upon execution, RRRS will prompt you to enter the desired number of rows to be randomly sampled from your CSV file. The output will be a new CSV file, named with the original file title plus a suffix indicating the number of sampled rows (e.g., `slogan_data-100`). This file will be saved either in the execution path or a specified output directory.
+Upon execution, RRRS will prompt you to enter the desired number of rows to be randomly sampled from your CSV file. The output will be a new CSV file with the original file title and a suffix indicating the number of sampled rows (e.g., `slogan_data-100`). This file will be saved in the execution path or a specified output directory.
 
 📂 Directory Structure
 ----------------------
@@ -84,7 +84,7 @@ Once Rust is installed, you can install RRRS using the following command: `cargo
 To build RRRS from source, you can clone the repository and build it using the following commands (*Note that this is primarily for development purposes*):
 
 ```bash
-git clone --branch development git@github.com:ethan-wickstrom/rrrs.git
+git clone git@github.com:ethan-wickstrom/rrrs.git
 cd rrrs
 cargo build --release
 cp target/release/rrrs /usr/local/bin
@@ -94,8 +94,6 @@ cp target/release/rrrs /usr/local/bin
 ---------------
 
 Contributions to RRRS are warmly welcomed. Feel free to open an issue or submit a pull request, whether it's bug reports, feature requests, or code contributions. Please refer to the contributing guidelines for more details.
-
-**Please note to clone from the `development` branch when making code contributions!**
 
 📝 License
 ----------
