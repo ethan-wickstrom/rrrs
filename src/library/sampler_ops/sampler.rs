@@ -3,7 +3,7 @@ use rand::seq::SliceRandom;
 
 pub fn sample_dataframe(df: &DataFrame, sample_size: usize) -> Result<DataFrame, PolarsError> {
     // Shuffle the DataFrame by creating a random order for indices
-    let n_rows = df.height() as usize;
+    let n_rows = df.height();
     let mut rng = rand::thread_rng();
     let mut indices: Vec<u32> = (0..n_rows as u32).collect();
     indices.shuffle(&mut rng);
