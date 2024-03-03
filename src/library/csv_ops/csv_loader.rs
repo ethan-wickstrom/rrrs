@@ -1,30 +1,12 @@
-use csv::{Reader, ReaderBuilder, StringRecord};
+use polars::prelude::*;
 use std::error::Error;
-use std::io;
-use tokio::fs::File;
-use tokio::io::AsyncReadExt;
 
-pub struct CsvLoader {
-    reader: Reader<io::Cursor<Vec<u8>>>,
-}
+pub async fn load_csv(filepath: &str) -> Result<DataFrame, Box<dyn Error>> {
+    let df = CsvReader::from_path(filepath)?
+        .infer_schema(Some(10))
+        .has_header(true)
+        .finish()
+        .map_err(|e| e.into());
 
-impl CsvLoader {
-    pub async fn new(file_path: &str) -> Result<CsvLoader, Box<dyn Error>> {
-        let mut file = File::open(file_path).await?;
-        let mut contents = vec![];
-        file.read_to_end(&mut contents).await?;
-
-        let reader = ReaderBuilder::new().from_reader(io::Cursor::new(contents));
-
-        Ok(CsvLoader { reader })
-    }
-
-    pub async fn load(&mut self) -> Result<Vec<StringRecord>, Box<dyn Error>> {
-        let mut records = Vec::new();
-        for result in self.reader.records() {
-            let record = result?;
-            records.push(record);
-        }
-        Ok(records)
-    }
+    df
 }

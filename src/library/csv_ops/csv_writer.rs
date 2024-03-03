@@ -1,28 +1,15 @@
-use csv::Writer;
+use polars::prelude::*;
 use std::error::Error;
 use std::fs::File;
-use csv::StringRecord;
 
-pub struct CsvWriter;
+pub fn write_csv(df: &mut Result<DataFrame, PolarsError>, output_dir: &str, file_name: &str) -> Result<(), Box<dyn Error>> {
+    let file = File::create(format!("{}/{}", output_dir, file_name))?;
+    let mut buffer = std::io::BufWriter::new(file);
+    let df = df.as_mut().unwrap();
 
-impl CsvWriter {
-    pub fn write(file_path: &str, records: &[StringRecord]) -> Result<(), Box<dyn Error>> {
-        // First, strip the file extension from the file path.
-        let file_path = file_path.trim_end_matches(".csv");
-        
-        
-        // Rename file_path to file_path + "-" + # of records + ".csv"
-        let file_path = format!("{}-{}.csv", file_path, records.len());
-
-        let file = File::create(file_path)?;
-        
-        let mut writer = Writer::from_writer(file);
-
-        for record in records {
-            writer.write_record(record)?;
-        }
-
-        writer.flush()?;
-        Ok(())
-    }
+    // No need to clone df, we can directly pass the reference
+    CsvWriter::new(&mut buffer)
+        .include_header(true)
+        .finish(df)
+        .map_err(|e| e.into())
 }
