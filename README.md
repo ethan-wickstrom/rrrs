@@ -23,6 +23,18 @@ Born out of a frustrating, repetitive process of sampling from unwieldy or enorm
 
 Enter **RRRS**. Developed with the speed and efficiency of Rust, RRRS is my answer to those frustrating hours. It's designed to make random sampling from large CSV files not just faster, but a seamless part of your workflow. This tool is for anyone who's ever felt this nuisance, turning what was once a bottleneck into a smooth, efficient process. With RRRS, I'm excited to share a solution that helped me and is now here to support data enthusiasts and professionals alike in their analytical endeavors.
 
+**Results**: Only 8.5 seconds to process and sample 100,000 rows of data from ~1.3 million rows of a 5.1-gigabyte dataset ([link to dataset](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024)).
+
+```bash
+(base) ethanwickstrom@Ethans-MacBook-Pro-2 ~ % rrrs -i job_summary.csv -o ./datasets
+
+Please enter the number of rows to sample from the input file:
+100000         
+CSV written
+Sampling completed   [00:00:08] [----------------------------------------] 1/1 (0s)                                 Sampled data has been successfully written.
+Elapsed time: 8.47s
+```
+
 🚀 Features
 -----------
 
