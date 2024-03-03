@@ -91,4 +91,4 @@ Contributions to RRRS are warmly welcomed. Whether it's bug reports, feature req
 📝 License
 ----------
 
-RRRS is open-sourced under the MIT License. See the LICENSE file for more details.
+RRRS is open-sourced under the Apache-2.0 license. See the LICENSE file for more details.
