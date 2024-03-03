@@ -1,7 +1,6 @@
 mod args;
 mod library;
 
-use indicatif::{ProgressBar, ProgressStyle};
 use std::time::Instant;
 
 #[tokio::main]
@@ -14,13 +13,6 @@ async fn main() {
     }
     
     let sample_size = cli_args.sample_size.unwrap();
-    
-    // Create a progress bar
-    let pb = ProgressBar::new(cli_args.sample_size.unwrap() as u64);
-    pb.set_style(ProgressStyle::default_bar()
-        .template("{spinner:.green} [{elapsed_precise}] [{bar:40.cyan/blue}] {pos}/{len} ({eta})")
-        .unwrap()
-        .progress_chars("#>-"));
 
     // Start the timer
     let start = Instant::now();
@@ -30,10 +22,7 @@ async fn main() {
     } else {
         println!("Sampled data has been successfully written.");
     }
-
-    // Finish the progress bar
-    pb.finish_with_message("Sampling completed");
-
+    
     // Print the elapsed time
     println!("Elapsed time: {:.2?}", start.elapsed());
 }

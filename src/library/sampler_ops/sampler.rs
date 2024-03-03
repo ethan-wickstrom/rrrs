@@ -1,16 +1,21 @@
 use polars::prelude::*;
-use rand::seq::SliceRandom;
+use parking_lot::Mutex;
+use rand::{Rng, thread_rng};
+use indicatif::{ProgressBar};
 
-pub fn sample_dataframe(df: &DataFrame, sample_size: usize) -> Result<DataFrame, PolarsError> {
-    // Shuffle the DataFrame by creating a random order for indices
-    let n_rows = df.height();
-    let mut rng = rand::thread_rng();
-    let mut indices: Vec<u32> = (0..n_rows as u32).collect();
-    indices.shuffle(&mut rng);
-    let indices = UInt32Chunked::from_vec("index", indices.into_iter().take(sample_size).collect());
+pub fn sample_dataframe(lazy_frame: LazyFrame, sample_size: usize, total_size: usize, pb: Arc<Mutex<ProgressBar>>) -> Result<DataFrame, PolarsError> {
+    let pb = pb.lock();
+    pb.set_prefix("Sampling data...");
 
-    // Select the rows based on shuffled indices
-    let sampled_df = df.take(&indices)?;
+    // Generate a random value for each row and filter based on a threshold.
+    let sampled_df = lazy_frame
+        .with_column(lit(thread_rng().gen_range(0.0..1.0)).alias("rand_val"))
+        .filter(col("rand_val").lt(lit(sample_size as f64 / total_size as f64)))
+        .drop(vec!["rand_val"]) // Drop the temporary random value column
+        .collect()?; // Collects the LazyFrame into a DataFrame
+
+    pb.set_prefix("Sampling completed");
+    pb.finish_with_message("Data sampled");
 
     Ok(sampled_df)
 }
