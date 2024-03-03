@@ -40,12 +40,9 @@ impl CliArgs {
             .get_matches();
 
         CliArgs {
-            //     pub fn get_one<T: Any + Clone + Send + Sync + 'static>(&self, id: &str) -> Option<&T> {
-            //         MatchesError::unwrap(id, self.try_get_one(id))
-            //     }
             input_file: matches.get_one::<String>("INPUT").unwrap().to_string(),
             output_dir: matches.get_one::<String>("OUTPUT").unwrap().to_string(),
-            sample_size: matches.get_one::<String>("SAMPLE_SIZE").unwrap().parse::<usize>().ok(),
+            sample_size: matches.get_one::<String>("SAMPLE_SIZE").map(|s| s.parse::<usize>().unwrap()),
         }
     }
 
