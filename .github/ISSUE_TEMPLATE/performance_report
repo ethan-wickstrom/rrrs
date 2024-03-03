@@ -1,0 +1,33 @@
+---
+name: Performance Issue
+about: Report a performance issue or regression
+title: '[PERFORMANCE]'
+labels: 'performance'
+assignees: ''
+
+---
+
+**Describe the Performance Issue**
+A clear and concise description of what the performance issue is. Include specific details about the operations or processes affected.
+
+**Steps to Reproduce**
+1. Go to '...'
+2. Perform '....'
+3. Notice the delay or performance bottleneck
+
+**Expected vs. Actual Performance**
+Describe what you expected to happen and how it differed from the actual performance.
+
+**Environment Details**
+- OS: [e.g., Windows 10]
+- Application Version: [e.g., 1.0.4]
+- Hardware Specifications: [e.g., 16GB RAM, SSD, i7 processor]
+
+**Profiler or Performance Monitoring Tools Results**
+If applicable, include results from any profiler or performance monitoring tools.
+
+**Possible Solutions or Ideas**
+If you have ideas on how the performance issue could be addressed, please share them.
+
+**Additional Context**
+Add any other context or screenshots about the performance issue here.
