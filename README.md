@@ -16,6 +16,13 @@ RRRS: Rust(ic) Rapid Random Sampler
 
 Welcome to RRRS, a rapid, hyper-optimized CSV random sampling tool designed with performance and efficiency at its core. Crafted meticulously in Rust, RRRS offers an unparalleled solution for extracting random data samples from CSV files swiftly and effortlessly.
 
+🤨 Why RRRS
+-----------
+
+Born out of a frustrating, repetitive process of sampling from unwieldy or enormous CSV files during my time at Washington University in St. Louis, **RRRS (Rust(ic) Rapid Random Sampler)** represents more than just a tool; it's a perhaps slightly redundant, but fun mission to over-optimize and speed up the all-too-familiar frustration of data sampling. As a student navigating the complex waters of data-heavy courses, I found myself constantly bogged down by the inefficiency of existing methods of importing massive datasets into spreadsheet software, waiting for them to load, and then struggling with plugins or scripting to extract the samples I needed. It was clear: there had to be a better way. So, instead of doing my homework, I work on this:
+
+Enter **RRRS**. Developed with the speed and efficiency of Rust, RRRS is my answer to those frustrating hours. It's designed to make random sampling from large CSV files not just faster, but a seamless part of your workflow. This tool is for anyone who's ever felt this nuisance, turning what was once a bottleneck into a smooth, efficient process. With RRRS, I'm excited to share a solution that helped me and is now here to support data enthusiasts and professionals alike in their analytical endeavors.
+
 🚀 Features
 -----------
 
