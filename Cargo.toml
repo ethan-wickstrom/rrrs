@@ -5,6 +5,8 @@ edition = "2021"
 authors = ["Ethan Wickstrom"]
 repository = "https://github.com/ethan-wickstrom/rrrs/"
 description = "Welcome to RRRS, a rapid, hyper-optimized CSV random sampling tool designed with performance and efficiency at its core."
+license = "Apache-2.0"
+license-file = "LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
