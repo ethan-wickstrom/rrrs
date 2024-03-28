@@ -1,3 +1,6 @@
+#[global_allocator]
+static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
+
 mod args;
 mod library;
 
@@ -17,7 +20,7 @@ async fn main() {
     // Start the timer
     let start = Instant::now();
 
-    if let Err(e) = library::perform_random_sampling(&cli_args.input_file, &cli_args.output_dir, sample_size).await {
+    if let Err(e) = library::perform_random_sampling(&cli_args.input_file, &cli_args.output_file, sample_size).await {
         eprintln!("Error occurred: {}", e);
     } else {
         println!("Sampled data has been successfully written.");

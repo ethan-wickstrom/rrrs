@@ -5,7 +5,7 @@ use clap::{Arg, Command};
 /// If the sample_size is not provided, the user will be prompted to enter it.
 pub struct CliArgs {
     pub input_file: String,
-    pub output_dir: String,
+    pub output_file: String,
     pub sample_size: Option<usize>, // Optional argument for sample size
 }
 
@@ -41,7 +41,7 @@ impl CliArgs {
 
         CliArgs {
             input_file: matches.get_one::<String>("INPUT").unwrap().to_string(),
-            output_dir: matches.get_one::<String>("OUTPUT").unwrap().to_string(),
+            output_file: matches.get_one::<String>("OUTPUT").unwrap().to_string(),
             sample_size: matches.get_one::<String>("SAMPLE_SIZE").map(|s| s.parse::<usize>().unwrap()),
         }
     }

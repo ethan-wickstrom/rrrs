@@ -14,7 +14,7 @@ use parking_lot::Mutex;
 use csv_ops::{csv_loader, csv_writer};
 use sampler_ops::sampler;
 
-pub async fn perform_random_sampling(input_file: &str, output_dir: &str, sample_size: usize) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn perform_random_sampling(input_file: &str, output_file: &str, sample_size: usize) -> Result<(), Box<dyn std::error::Error>> {
     let pb = ProgressBar::new_spinner();
 
     let pb = Arc::new(Mutex::new(pb));
@@ -34,8 +34,8 @@ pub async fn perform_random_sampling(input_file: &str, output_dir: &str, sample_
 
     // Adjust sampler usage to propagate the error correctly
     let sampled_df = sampler::sample_dataframe(lf, sample_size, Arc::clone(&pb)).await;
-
-    csv_writer::write_csv(sampled_df, output_dir, format!("{}-{}.csv", input_file.trim_end_matches(".csv"), sample_size).as_str(), Arc::clone(&pb)).0.expect("Failed to write CSV");
+    
+    csv_writer::write_csv(sampled_df, output_file, Arc::clone(&pb))?;
 
     Ok(())
 }
