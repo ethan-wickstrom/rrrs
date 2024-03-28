@@ -13,7 +13,7 @@ impl CliArgs {
     /// Parses command-line arguments using clap and returns a CliArgs instance.
     pub fn new() -> CliArgs {
         let matches = Command::new("RRRS")
-            .version("0.1.0")
+            .version("0.1.4")
             .author("Ethan Wickstrom")
             .about("Rust(ic) Rapid Random Sampler")
             .arg(Arg::new("INPUT")
