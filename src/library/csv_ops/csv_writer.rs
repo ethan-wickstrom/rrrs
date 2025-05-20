@@ -4,6 +4,7 @@ use indicatif::ProgressBar;
 use parking_lot::Mutex;
 use std::fs::{self, File};
 use std::path::{Path};
+use std::sync::Arc;
 
 pub fn write_csv(df: Result<DataFrame, PolarsError>, output_file: &str, pb: Arc<Mutex<ProgressBar>>) -> Result<(), Box<dyn Error>> {
     pb.lock().set_message("Writing CSV");

@@ -2,6 +2,7 @@ use polars::prelude::*;
 use parking_lot::Mutex;
 use indicatif::{ParallelProgressIterator, ProgressBar};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::sync::Arc;
 
 pub async fn sample_dataframe(lazy_frame: LazyFrame, sample_size: usize, pb: Arc<Mutex<ProgressBar>>) -> Result<DataFrame, PolarsError> {
     let pb = pb.lock();
@@ -24,3 +25,4 @@ pub async fn sample_dataframe(lazy_frame: LazyFrame, sample_size: usize, pb: Arc
 
     Ok(sampled_df)
 }
+
